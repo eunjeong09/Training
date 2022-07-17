@@ -1,49 +1,34 @@
 <template>
-  <q-page class="row items-center justify-evenly">
-    <example-component
-      title="Example component"
-      active
-      :todos="todos"
-      :meta="meta"
-    ></example-component>
-  </q-page>
+  <div @click="openPage">google 로그인</div>
 </template>
 
 <script lang="ts">
-import { Todo, Meta } from 'components/models';
-import ExampleComponent from 'components/ExampleComponent.vue';
-import { defineComponent, ref } from 'vue';
+import { defineComponent } from 'vue';
 
 export default defineComponent({
   name: 'IndexPage',
-  components: { ExampleComponent },
+  // components: {  },
   setup () {
-    const todos = ref<Todo[]>([
-      {
-        id: 1,
-        content: 'ct1'
-      },
-      {
-        id: 2,
-        content: 'ct2'
-      },
-      {
-        id: 3,
-        content: 'ct3'
-      },
-      {
-        id: 4,
-        content: 'ct4'
-      },
-      {
-        id: 5,
-        content: 'ct5'
-      }
-    ]);
-    const meta = ref<Meta>({
-      totalCount: 1200
-    });
-    return { todos, meta };
+    const openPage = () =>{
+      window.open(GOOGLE_LOGIN_URL, '_blank');
+      console.log('gg');
+    }
+    const GOOGLE_CLIENT_ID = '282966391986-gv1ijkncbo22dmstk7f60atbvbf4nr3d.apps.googleusercontent.com';
+    const GOOGLE_REDIRECT_URI = 'https://localhost:9001/google'
+
+    const GOOGLE_LOGIN_URL = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${GOOGLE_CLIENT_ID}&redirect_uri=${GOOGLE_REDIRECT_URI}&response_type=token&scope=email`;
+    return{
+      openPage
+    }
   }
 });
 </script>
+
+<style scoped>
+div{
+  padding : 10px;
+  border: 2px solid purple;
+  text-align: center;
+}
+
+</style>
