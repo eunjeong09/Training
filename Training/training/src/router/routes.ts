@@ -6,6 +6,8 @@ const routes: RouteRecordRaw[] = [
     component: () => import('layouts/MainLayout.vue'),
     children: [
       { path: '', component: () => import('pages/IndexPage.vue') },
+      { path: 'user', component: () => import('pages/userInfo.vue') },
+      { path: 'gmail', component: () => import('pages/gmailInfo.vue') },
       {
         path: 'google',
         component: () => import('pages/GooglePage.vue'),

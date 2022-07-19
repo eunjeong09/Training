@@ -1,19 +1,14 @@
-<template>
-  <h1>google</h1>
+<template lang="pug">
+div 로그인완료 Google 페이지
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted } from 'vue';
+import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: 'GooglePage',
-
   setup() {
-    onMounted(() => {
-      // console.log('fdfdfdf');
-      alert('gg');
-    });
-    return {};
-  },
-});
+    console.log('구글페이지')
+    return {}
+  }
+})
 </script>
